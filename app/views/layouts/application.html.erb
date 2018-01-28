@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hospital</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	
+  		<%  @phy = Physician.all %>
+      <%  @p = Patient.all %>
+      <% @app= Appointment.all %>
+      <span><%=link_to "Physicians", physicians_path(@phy) , method:"Get"%></span>
+      <span><%=link_to "Patients", patients_path(@p) , method:"GET"%></span>
+      <span><%=link_to "Appointments", appointments_path(@app) , method:"GET"%></span>
+    <%= yield %>
+  </body>
+</html>

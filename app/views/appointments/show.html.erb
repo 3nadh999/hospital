@@ -1,0 +1,13 @@
+
+<center>
+	<h2 style="background-color:white">Customer Details</h2> 
+	
+	<table>
+		<tr><td>Date  </td><td>:</td><td> <%= @appointment.a_date %></td></tr>
+		<tr><td>Physician name   </td><td>:</td><td> <%= @appointment.physician.name %></td></tr>
+		<tr><td>Patient name </td><td>:</td><td> <%= @appointment.patient.name %></td></tr>
+		
+	</table>
+		<p style="background-color: white ; width: 100px;"><%= link_to "Back", appointments_path %> </p>
+		
+</center>

@@ -1,0 +1,11 @@
+
+	<p>Name: <%= f.text_field :name %></p>
+	<p>Age: <%= f.number_field :age %></p>
+	<p>Phone: <%= f.telephone_field :phone %></p>
+	<p>Email: <%= f.email_field :email %></p>
+	<p>	Gender:
+		<%= f.radio_button :gender, 'male' %> 
+  		<%= f.label :gender, 'male', :value => 'male' %>
+  		<%= f.radio_button :gender, 'female' %>
+  		<%= f.label :gender, 'female', :value => 'female' %></p>
+	<p><%= f.submit %></p>

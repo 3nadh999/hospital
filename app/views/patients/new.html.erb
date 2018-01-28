@@ -1,0 +1,15 @@
+
+
+<center>
+	<h1> Enter Patient Details </h1>
+
+	<%= form_for @p , url:{action: :create} do |f| %>
+		<table >
+			<%= render partial:'form',locals:{f:f} %>
+
+		</table>
+		
+	<% end %>
+</center>
+ 
+

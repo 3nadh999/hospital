@@ -1,0 +1,22 @@
+<table>
+		<tr><th>Date</th><th>Patient Name</th><th>Physician Name</th><th>Actions</th></tr>
+	
+		<% @appointments.each do |ap| %>
+			<tr>
+				<td><%= ap.a_date %></td>
+				<td> <%= ap.patient.name %></td>
+				<td><%= ap.physician.name %></td>
+				<td>
+					<%= link_to "show" , appointment_path(ap) %> 
+					 <%= link_to "edit" , edit_appointment_path(ap) %> 
+ 					<%= link_to 'delete',appointment_path(ap) , method:'DELETE' %>
+					
+				</td>
+			</tr>  
+			
+			
+<%end %>
+</table>
+
+
+<p><%= link_to "new" , new_appointment_path %></p> 
