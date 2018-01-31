@@ -1,2 +1,25 @@
-<h1>Patients#index</h1>
-<p>Find me in app/views/patients/index.html.erb</p>
+<table>
+		<tr><th>Name</th><th>Age</th><th>Phone Number</th><th>Email</th><th>Gender</th><th>Actions</th></tr>
+	
+		<% @p.each do |p| %>
+			<tr>
+				<td><%= p.name %></td>
+				<td> <%= p.age %></td>
+				<td><%= p.phone %></td>
+				<td><%= p.email %></td>
+				<td><%= p.gender%></td>
+
+				<td>
+					<%= link_to "show" , patient_path(p) %> 
+					 <%= link_to "edit" , edit_patient_path(p) %> 
+ 					<%= link_to 'delete',patient_path(p) , method:'DELETE' %>
+					
+				</td>
+			</tr>  
+			
+			
+<%end %>
+</table>
+
+
+<p><%= link_to "new" , new_patient_path %></p> 

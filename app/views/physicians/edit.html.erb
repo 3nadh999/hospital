@@ -1,2 +1,15 @@
-<h1>Physicians#edit</h1>
-<p>Find me in app/views/physicians/edit.html.erb</p>
+
+
+<center>
+	<h1> Enter Patient Details </h1>
+
+	<%= form_for @phy , url:{action: :update} do |f| %>
+		<table >
+			<%= render partial:'form',locals:{f:f} %>
+
+		</table>
+		
+	<% end %>
+</center>
+ 
+

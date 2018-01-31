@@ -3,7 +3,7 @@
 <center>
 	<h1> Enter Patient Details </h1>
 
-	<%= form_for @p , url:{action: :create} do |f| %>
+	<%= form_for @p , url:{action: :update} do |f| %>
 		<table >
 			<%= render partial:'form',locals:{f:f} %>
 

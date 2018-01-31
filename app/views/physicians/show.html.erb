@@ -1,2 +1,13 @@
-<h1>Physicians#show</h1>
-<p>Find me in app/views/physicians/show.html.erb</p>
+
+<center>
+	<h2 style="background-color:white">Physician Details</h2> 
+	
+	<table>
+		<tr><td>Name  </td><td>:</td><td> <%= @phy.name %></td></tr>
+		<tr><td>Age   </td><td>:</td><td> <%= @phy.age %></td></tr>
+		<tr><td>Experiance </td><td>:</td><td> <%= @phy.experiance %></td></tr>
+		
+	</table>
+		<p style="background-color: white ; width: 100px;"><%= link_to "Back", physicians_path %> </p>
+		
+</center>

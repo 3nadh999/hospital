@@ -1,8 +1,10 @@
 class PatientsController < ApplicationController
   def index
+    @p = Patient.all
   end
 
   def show
+     @p=Patient.find params[:id]
   end
 
   def new
@@ -17,12 +19,22 @@ class PatientsController < ApplicationController
   end
 
   def update
+     @p=Patient.find params[:id]
+     if @p.update_attributes(patient_params)
+        redirect_to patients_path
+     end
   end
 
   def edit
+    @p=Patient.find params[:id]
   end
 
   def destroy
+    @p=Patient.find params[:id]
+
+    if @p.delete
+      redirect_to patients_path
+    end
   end
 
 

@@ -1,8 +1,10 @@
 class PhysiciansController < ApplicationController
-    def index
+  def index
+    @phy = Physician.all
   end
 
   def show
+    @phy = Physician.find params[:id]
   end
 
   def new
@@ -17,12 +19,23 @@ class PhysiciansController < ApplicationController
   end
 
   def update
+
+    @phy=Physician.find params[:id]
+    if @phy.update_attributes(physician_params)
+      redirect_to physicians_path
+    end
   end
 
   def edit
+     @phy = Physician.find params[:id]
   end
 
   def destroy
+    @phy = Physician.find params[:id]
+    if @phy.delete
+       redirect_to physicians_path
+     end  
+
   end
 
 

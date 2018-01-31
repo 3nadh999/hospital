@@ -1,2 +1,15 @@
-<h1>Patients#show</h1>
-<p>Find me in app/views/patients/show.html.erb</p>
+
+<center>
+	<h2 style="background-color:white">Patient Details</h2> 
+	
+	<table>
+		<tr><td>Name  </td><td>:</td><td> <%= @p.name %></td></tr>
+		<tr><td>Age   </td><td>:</td><td> <%= @p.age %></td></tr>
+		<tr><td>Phone </td><td>:</td><td> <%= @p.phone %></td></tr>
+		<tr><td>Email </td><td>:</td><td> <%= @p.email %></td></tr>
+		<tr><td>Gender </td><td>:</td><td> <%= @p.gender %></td></tr>
+		
+	</table>
+		<p style="background-color: white ; width: 100px;"><%= link_to "Back", patients_path %> </p>
+		
+</center>
