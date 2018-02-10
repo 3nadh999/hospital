@@ -1,11 +1,14 @@
-
-	<p>Name: <%= f.text_field :name %></p>
-	<p>Age: <%= f.number_field :age %></p>
-	<p>Phone: <%= f.telephone_field :phone %></p>
-	<p>Email: <%= f.email_field :email %></p>
-	<p>	Gender:
+	
+<tr><td>Name:</td><td> <%= f.text_field :name %></td></tr>
+<tr><td>Age: </td><td><%= f.number_field :age %></td></tr>
+<tr><td>Phone:</td><td><%= f.telephone_field :phone %><td></tr>
+<tr><td>Email:</td><td><%= f.email_field :email %></td></tr>
+<tr>
+ <td>Department</td><td><%= f.select :department, Department.all.map(&:name), {prompt:"Choose Category"}%></td></tr>
+<tr><td>Gender:</td><td>
 		<%= f.radio_button :gender, 'male' %> 
   		<%= f.label :gender, 'male', :value => 'male' %>
   		<%= f.radio_button :gender, 'female' %>
-  		<%= f.label :gender, 'female', :value => 'female' %></p>
-	<p><%= f.submit %></p>
+  		<%= f.label :gender, 'female', :value => 'female' %></td>
+</tr>
+<tr> <td></td> <td><%= f.submit %></td></tr>

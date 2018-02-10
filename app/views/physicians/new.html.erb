@@ -4,6 +4,14 @@
 	<h1> Enter Physician Details </h1>
 
 	<%= form_for @phy , url:{action: :create} do |f| %>
+
+		<% if @phy.errors.any? %>
+			<% @phy.errors.full_messages.each do |error| %>
+				<%= error %></br>
+	    	<% end %>
+	 	<% end %>
+
+
 		<table >
 			<%= render partial:'form',locals:{f:f} %>
 

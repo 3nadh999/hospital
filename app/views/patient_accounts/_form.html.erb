@@ -1,0 +1,31 @@
+
+<%= form_with(model: patient_account, local: true) do |form| %>
+  <% if patient_account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(patient_account.errors.count, "error") %> prohibited this patient_account from being saved:</h2>
+
+      <ul>
+      <% patient_account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ 
+  <div class="field">
+    <%= form.label :number %>
+    <%= form.text_field :number, id: :patient_account_number %>
+    
+  </div>
+
+  <div class="field">
+    <%= form.label :patient_id %>
+    <%= form.select("patient_id", Patient.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+

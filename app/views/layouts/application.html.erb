@@ -4,18 +4,30 @@
     <title>Hospital</title>
     <%= csrf_meta_tags %>
 
+    <center><h1>Hospital Management System</h1></center>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  	
+
   		<%  @phy = Physician.all %>
       <%  @p = Patient.all %>
       <% @app= Appointment.all %>
-      <span><%=link_to "Physicians", physicians_path(@phy) , method:"Get"%></span>
-      <span><%=link_to "Patients", patients_path(@p) , method:"GET"%></span>
-      <span><%=link_to "Appointments", appointments_path(@app) , method:"GET"%></span>
+      <center>
+      <div id='c1'>
+        <span>
+          <button  class="b"> <%= link_to "PHYSICIANS", physicians_path(@phy), :method => "get" %></button>
+        </span>
+        <span>
+          <button  class="b"><%= link_to "PATIENTS", patients_path(@p), :method => "get"  %></button>
+        </span>
+        <span>
+          <button class="b" ><%= link_to "APPOINTMENTS", appointments_path(@app) , method:"get"%> </button>
+        </span>
+      </div>
+      </center>
     <%= yield %>
   </body>
 </html>

@@ -1,15 +1,32 @@
 
 <center>
-	<h2 style="background-color:white">Patient Details</h2> 
+	<h2> <%= @p.name %> Details</h2> 
 	
-	<table>
+	<table style="background-color:#A2ACBC">
 		<tr><td>Name  </td><td>:</td><td> <%= @p.name %></td></tr>
 		<tr><td>Age   </td><td>:</td><td> <%= @p.age %></td></tr>
 		<tr><td>Phone </td><td>:</td><td> <%= @p.phone %></td></tr>
 		<tr><td>Email </td><td>:</td><td> <%= @p.email %></td></tr>
 		<tr><td>Gender </td><td>:</td><td> <%= @p.gender %></td></tr>
-		
+		<tr><td>Department </td><td>:</td><td> <%= @p.department %></td></tr>
 	</table>
-		<p style="background-color: white ; width: 100px;"><%= link_to "Back", patients_path %> </p>
-		
+	<button><%= link_to "Back", patients_path %></button>
+	</br>
+	</br>
+	
+
+	
+	<%= form_tag(patient_path ,method:'PATCH' ) do  %>
+   		<span><%= text_field_tag(:search, params[:search]) %></span>
+   		<%= submit_tag("Add image", name: nil) %></p>
+
+   			
+   		<span>
+   		
+   				<% if $status == 1 %>
+   					<p> image added sucessfully </p>
+   				<% end %>	
+   		</span>
+	<% end %>
+	
 </center>

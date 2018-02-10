@@ -3,8 +3,14 @@
 <center>
 	<h1> Enter Patient Details </h1>
 
+
 	<%= form_for @p , url:{action: :create} do |f| %>
-		<table >
+		<% if @p.errors.any? %>
+			<% @p.errors.full_messages.each do |error| %>
+				<%= error %></br>
+	    	<% end %>
+	 	<% end %>
+		<table style="background-color:#A2ACBC" >
 			<%= render partial:'form',locals:{f:f} %>
 
 		</table>

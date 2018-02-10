@@ -1,10 +1,10 @@
 
 
 <center>
-	<h1> Enter Patient Details </h1>
+	<h2> update  "<%= @p.name %>"  Details </h2>
 
 	<%= form_for @p , url:{action: :update} do |f| %>
-		<table >
+		<table style="background-color:#A2ACBC">
 			<%= render partial:'form',locals:{f:f} %>
 
 		</table>

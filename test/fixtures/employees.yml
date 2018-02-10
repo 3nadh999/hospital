@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  account: MyString
+  employee_id: 
+  manager_id: 
+
+two:
+  account: MyString
+  employee_id: 
+  manager_id: 

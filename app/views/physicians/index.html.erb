@@ -1,16 +1,28 @@
-<table>
+<center>
+	<h1>Physician Details </h1>
+
+				<%= form_tag(physicians_path ,method:'GET' ) do  %>
+    	 			<%= text_field_tag(:search, params[:search]) %>
+    	  			<%= submit_tag("Search", name: nil) %></p>
+				<% end %>
+<table style="background-color:#A2ACBC">
 		<tr><th>Name</th><th>Age </th><th>Experience</th><th>Actions</th></tr>
 	
 		<% @phy.each do |p| %>
 			<tr>
-				<td><%= p.name %></td>
+				
+				<td><%= link_to p.name , appointments_path(id: p.id , name: "physician" ) %></td>
 				<td> <%= p.age %></td>
 				<td><%= p.experiance %></td>
 				
 				<td>
 					<%= link_to "show" , physician_path(p)  %> 
-					 <%= link_to "edit" , edit_physician_path(p) %> 
+					<%= link_to "edit" , edit_physician_path(p) %> 
  					<%= link_to 'delete',physician_path(p) , method:'DELETE' %>
+					<%= link_to 'generate number', generate_number_physician_physician_path(p)  if p.patient_account.nil?%>
+ 					 	
+ 					 
+ 				
 					
 				</td>
 			</tr>  
@@ -18,6 +30,6 @@
 			
 <%end %>
 </table>
+<button><%= link_to "new" , new_physician_path %></button>
 
-
-<p><%= link_to "new" , new_physician_path %></p> 
+</center> 

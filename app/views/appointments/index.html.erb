@@ -1,11 +1,23 @@
-<table>
-		<tr><th>Date</th><th>Patient Name</th><th>Physician Name</th><th>Actions</th></tr>
+<div align="center">
+	<%= form_tag(appointments_path ,method:'GET' ) do  %>
+    	 <p>Date  <%= date_field_tag(:date, params[:date]) %>
+    	 	Fee   <%= text_field_tag(:search, params[:search]) %>
+    	  		  <%= submit_tag("Search", name: nil) %></p>
+	<% end %>
+</div>	
+
+<center>
+		<h1 style="background-color:#D5E1F3">Appointments</h1>
+<table style="background-color:#A2ACBC">
+		<tr><th>Date</th><th>Fee</th><th>Patient Name</th><th>Physician Name</th><th>Actions</th></tr>
 	
 		<% @appointments.each do |ap| %>
 			<tr>
 				<td><%= ap.a_date %></td>
+				<td><%= ap.fee %></td>
 				<td> <%= ap.patient.name %></td>
 				<td><%= ap.physician.name %></td>
+				
 				<td>
 					<%= link_to "show" , appointment_path(ap) %> 
 					 <%= link_to "edit" , edit_appointment_path(ap) %> 
@@ -18,5 +30,5 @@
 <%end %>
 </table>
 
-
-<p><%= link_to "new" , new_appointment_path %></p> 
+<p><button><%= link_to "new" , new_appointment_path %></button></p> 
+</center>

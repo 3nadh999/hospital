@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  referances: MyString
+  : 
+  referances: 
+  account_name: MyString
+
+two:
+  referances: MyString
+  : 
+  referances: 
+  account_name: MyString

@@ -1,0 +1,2 @@
+class PatientAccount < ApplicationRecord
+end

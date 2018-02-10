@@ -1,13 +1,30 @@
 
 <center>
-	<h2 style="background-color:white">Physician Details</h2> 
+	<h2> "<%= @phy.name %>"  Details</h2> 
 	
-	<table>
+	<table style="background-color:#A2ACBC">
 		<tr><td>Name  </td><td>:</td><td> <%= @phy.name %></td></tr>
 		<tr><td>Age   </td><td>:</td><td> <%= @phy.age %></td></tr>
 		<tr><td>Experiance </td><td>:</td><td> <%= @phy.experiance %></td></tr>
 		
 	</table>
-		<p style="background-color: white ; width: 100px;"><%= link_to "Back", physicians_path %> </p>
+		<button><%= link_to "Back", physicians_path %> </button>
+
+
+	<%= form_tag(physician_path ,method:'PATCH' ) do  %>
+   		<%= text_field_tag(:search, params[:search]) %>
+   		
+
+  		<%= submit_tag("Add image", name: nil) %></p>
+
+  		<span>
+   				<% if $status == 1 %>
+   					<p> image added sucessfully </p>
+   				<% end %>	
+   		</span>
+
+	<% end %>
+	
+
 		
 </center>
