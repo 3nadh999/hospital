@@ -4,6 +4,8 @@ class Physician < ApplicationRecord
 	has_and_belongs_to_many :departments
 	has_one :patient_account
   has_many :pictures,as: :imageable
+  
+  has_many :comments, as: :person
 
 	validates :name,:age,:experiance, presence: true
 	validate :validate_age

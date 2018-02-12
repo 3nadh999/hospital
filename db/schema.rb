@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180209032534) do
+ActiveRecord::Schema.define(version: 20180212055917) do
 
   create_table "appointments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date "a_date"
@@ -23,19 +23,13 @@ ActiveRecord::Schema.define(version: 20180209032534) do
     t.index ["physician_id"], name: "index_appointments_on_physician_id"
   end
 
-  create_table "chats", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "reply_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "comment"
-    t.index ["reply_id"], name: "index_chats_on_reply_id"
-  end
-
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "reply_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "comment"
+    t.integer "person_id"
+    t.string "person_type"
     t.index ["reply_id"], name: "index_comments_on_reply_id"
   end
 
@@ -50,12 +44,11 @@ ActiveRecord::Schema.define(version: 20180209032534) do
     t.bigint "department_id", null: false
   end
 
-  create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "account"
-    t.integer "employee_id"
-    t.integer "manager_id"
+  create_table "mycomments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "reply_id"
   end
 
   create_table "patient_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
