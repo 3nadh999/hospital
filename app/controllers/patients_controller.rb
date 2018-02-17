@@ -10,6 +10,9 @@ class PatientsController < ApplicationController
 
   def show
      @p=Patient.find params[:id]
+     
+     @comments=Comment.where(person_id:params[:id]).where(person_type:"Patient")
+
     
   end
 
@@ -53,6 +56,13 @@ class PatientsController < ApplicationController
     if @p.delete
       redirect_to patients_path
     end
+  end
+
+  def comment
+    @patient = Patient.find params[:format]
+    @patient.comments.create(comment:params[:comment])
+    redirect_to patient_path(@patient)
+
   end
 
 

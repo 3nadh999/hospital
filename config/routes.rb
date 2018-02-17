@@ -7,11 +7,16 @@ Rails.application.routes.draw do
   	member do 
   		get 'generate_number_physician'
   	end
+
   end
   resources :patients do
   	member do 
   		get 'generate_number_patient'
   	end
+    collection do
+      get 'comment'
+      post 'comment'
+    end
   end
   resources :appointments 
 
