@@ -8,9 +8,10 @@
 
 <center>
 		<h1 style="background-color:#D5E1F3">Appointments</h1>
-<table style="background-color:#A2ACBC">
+<table class="table table-hover">
+<thead>
 		<tr><th>Date</th><th>Fee</th><th>Patient Name</th><th>Physician Name</th><th>Actions</th></tr>
-	
+</thead>
 		<% @appointments.each do |ap| %>
 			<tr>
 				<td><%= ap.a_date %></td>

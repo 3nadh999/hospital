@@ -2,7 +2,6 @@
 
 
 <%= form_for @appointment do |f| %>
-	<center>
 		<% if @appointment.errors.any? %>
 			<% @appointment.errors.full_messages.each do |error| %>
 				<%= error %></br>
@@ -11,13 +10,23 @@
 
 	
 		<h2>Enter Appointment Details</h2>
-		<table style="background-color:#A2ACBC">
-			<tr><td>Appointment Date :</td><td><%= f.date_field :a_date %></td></tr>
-			<tr><td>Fee :</td> <td><%= f.number_field :fee %> </td></tr>
-			<tr><td>Physician :</td><td><%= f.select("physician_id", Physician.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %></td></tr>
-			<tr><td> Patient : </td><td><%= f.select("patient_id", Patient.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %></td></tr>
-		  	<tr><td></td><td><%= f.submit %></td></tr>
-		</table>
-	</center>
+
+		<div class="form-group">
+		    <label for="exampleInputEmail1">Appointment Date :</label>
+		    <%= f.date_field :a_date ,class: "form-control" %>
+		</div>
+		<div class="form-group">
+		    <label for="exampleInputEmail1">Fee:</label>
+		    <%= f.number_field :fee ,class: "form-control" ,placeholder: "fee" %>
+		</div>
+		<div class="form-group">
+		    <label for="exampleInputEmail1">Physician:</label>
+		    <%=  f.select("physician_id", Physician.all.collect {|p| [ p.name, p.id ] }, { include_blank: true } , {class: "form-control"}) %>
+		</div>
+		<div class="form-group">
+		    <label for="exampleInputEmail1">Patient:</label>
+		    <%= f.select("patient_id", Patient.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }, {class: "form-control"}) %>
+		</div>
+		<%= f.submit class: "btn btn-primary" %>
 	
 <% end %>
