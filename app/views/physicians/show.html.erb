@@ -24,6 +24,13 @@
    		</span>
 
 	<% end %>
+
+	<table>
+		<tr><th>Comment</th><th>time</th></tr>
+		<% @comments.each do |p| %>
+			<tr><td><%= p.comment %></td><td><%= p.created_at %></td></tr>
+		<% end %>
+	</table>	
 	
 
 		

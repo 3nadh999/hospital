@@ -10,6 +10,12 @@ class PhysiciansController < ApplicationController
 
   def show
     @phy = Physician.find params[:id]
+
+    @patients_name=Appointment.where(physician:@phy.name)
+    @patients=Patient.find_by name:@patients_name.name
+
+    @patient_comments=Comment.where(person_id:params[:id]).where(person_type:"Physician")
+    @physician_comments=Comment.where(person_id:params[:id]).where(person_type:"Physician")
   end
 
   def new
