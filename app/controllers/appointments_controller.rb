@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   def new
     @appointment = Appointment.new
+    
   end
 
   def create
@@ -10,16 +11,17 @@ class AppointmentsController < ApplicationController
     else 
       render 'new' 
     end
+
   end
 
   def index
-    
+  
     if params[:name]=="physician"
-     @appointments = Appointment.where({physician_id: params[:id]})
+     @appointments = Appointment.where({physician_id: params[:id]}).includes(:physician).includes(:patient)
     elsif params[:name]=="patient"
-     @appointments = Appointment.where({patient_id: params[:id]})
+     @appointments = Appointment.where({patient_id: params[:id]}).includes(:physician).includes(:patient)
    else
-    @appointments=Appointment.all
+    @appointments=Appointment.all.includes(:physician).includes(:patient)
    end  
 
     
@@ -43,6 +45,7 @@ class AppointmentsController < ApplicationController
   end
 
   def update
+   
     @appointment=Appointment.find params[:id]
     if @appointment.update_attributes(appointment_params)
       redirect_to appointments_path
@@ -59,6 +62,9 @@ class AppointmentsController < ApplicationController
   def show
     @appointment=Appointment.find params[:id]
   end
+
+ 
+  
 
 private 
   def appointment_params

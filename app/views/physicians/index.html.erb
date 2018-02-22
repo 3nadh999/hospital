@@ -5,7 +5,7 @@
     	 			<%= text_field_tag(:search, params[:search]) %>
     	  			<%= submit_tag("Search", name: nil) %></p>
 				<% end %>
-<table style="background-color:#A2ACBC">
+<table  class="table table-hover">
 		<tr><th>Name</th><th>Age </th><th>Experience</th><th>Actions</th></tr>
 	
 		<% @phy.each do |p| %>
@@ -16,10 +16,13 @@
 				<td><%= p.experiance %></td>
 				
 				<td>
-					<%= link_to "show" , physician_path(p)  %> 
-					<%= link_to "edit" , edit_physician_path(p) %> 
- 					<%= link_to 'delete',physician_path(p) , method:'DELETE' %>
-					<%= link_to 'generate number', generate_number_physician_physician_path(p)  if p.patient_account.nil?%>
+					<button class="btn btn-info"><%= link_to "show" , physician_path(p) %> </button> 
+					<button class="btn btn-info"><%= link_to "edit" , edit_physician_path(p) %> </button>
+ 					<button class="btn btn-warning"><%= link_to 'delete',physician_path(p) , method:'DELETE' %></button>
+
+ 					<% if p.patient_account.nil? %>
+						<button class="btn btn-success"><%= link_to 'generate number', generate_number_physician_physician_path(p)  %></button>
+					<% end %>	
  					 	
  					 
  				
@@ -30,6 +33,6 @@
 			
 <%end %>
 </table>
-<button><%= link_to "new" , new_physician_path %></button>
+<button class="btn btn-info"> <%= link_to "new" , new_physician_path %></button>
 
 </center> 

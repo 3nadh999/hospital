@@ -1,15 +1,15 @@
 
 
-<center>
+
 	<h2> update "<%= @phy.name %>"  Details </h2>
 
 	<%= form_for @phy , url:{action: :update} do |f| %>
-		<table style="background-color:#A2ACBC">
+		<table class="table table-hover">
 			<%= render partial:'form',locals:{f:f} %>
 
 		</table>
 		
 	<% end %>
-</center>
+
  
 

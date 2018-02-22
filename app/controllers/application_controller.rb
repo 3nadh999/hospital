@@ -14,4 +14,5 @@ class ApplicationController < ActionController::Base
   		redirect_to physicians_path
   	end
   end
+
 end

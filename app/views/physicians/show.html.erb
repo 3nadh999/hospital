@@ -1,21 +1,21 @@
 
-<center>
+
 	<h2> "<%= @phy.name %>"  Details</h2> 
 	
-	<table style="background-color:#A2ACBC">
+	<table class="table table-hover">
 		<tr><td>Name  </td><td>:</td><td> <%= @phy.name %></td></tr>
 		<tr><td>Age   </td><td>:</td><td> <%= @phy.age %></td></tr>
 		<tr><td>Experiance </td><td>:</td><td> <%= @phy.experiance %></td></tr>
 		
 	</table>
-		<button><%= link_to "Back", physicians_path %> </button>
+		<button class="btn btn-info"><%= link_to "Back", physicians_path %> </button>
 
 
 	<%= form_tag(physician_path ,method:'PATCH' ) do  %>
    		<%= text_field_tag(:search, params[:search]) %>
    		
 
-  		<%= submit_tag("Add image", name: nil) %></p>
+  		<%= submit_tag "Image" %></p>
 
   		<span>
    				<% if $status == 1 %>
@@ -25,13 +25,19 @@
 
 	<% end %>
 
-	<table>
+	<%= form_tag comment_physicians_path(@phy) do  %>
+		<%= text_field_tag(:comment) %>
+		<%= submit_tag "Comment" %>
+	<% end %> 
+
+
+	<table class="table table-hover">
 		<tr><th>Comment</th><th>time</th></tr>
-		<% @comments.each do |p| %>
+		<% @physician_comments.each do |p| %>
 			<tr><td><%= p.comment %></td><td><%= p.created_at %></td></tr>
 		<% end %>
 	</table>	
 	
 
 		
-</center>
+

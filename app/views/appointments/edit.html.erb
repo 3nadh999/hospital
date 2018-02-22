@@ -1,14 +1,15 @@
 
 
 <%= form_for @appointment do |f| %>
-	<center>
+	
 		<h2>Enter Appointment Details</h2>
-		<table style="background-color:#A2ACBC">
+		<table class="table">
 			<tr><td>Appointment Date :</td><td><%= f.date_field :a_date %></td></tr>
+			<tr><td>Fee :</td><td><%= f.number_field :fee %></td></tr>
 			<tr><td>Physician :</td><td><%= f.select("physician_id", Physician.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %></td></tr>
 			<tr><td> Patient : </td><td><%= f.select("patient_id", Patient.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %></td></tr>
-		  	<tr><td></td><td><%= f.submit %></td></tr>
+		  	<tr><td></td><td><%= f.submit class: "btn btn-success" %></td></tr>
 		</table>
-	</center>
+	
 	
 <% end %>

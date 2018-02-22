@@ -6,6 +6,8 @@
 	<% end %>
 </div>	
 
+
+
 <center>
 		<h1 style="background-color:#D5E1F3">Appointments</h1>
 <table class="table table-hover">
@@ -20,9 +22,9 @@
 				<td><%= ap.physician.name %></td>
 				
 				<td>
-					<%= link_to "show" , appointment_path(ap) %> 
-					 <%= link_to "edit" , edit_appointment_path(ap) %> 
- 					<%= link_to 'delete',appointment_path(ap) , method:'DELETE' %>
+					<button class="btn btn-info"><%= link_to "show" , appointment_path(ap) %> </button>
+					<button class="btn btn-info"> <%= link_to "edit" , edit_appointment_path(ap) %>    </button>
+ 					<button class="btn btn-warning"><%= link_to 'delete',appointment_path(ap) , method:'DELETE' %></button>
 					
 				</td>
 			</tr>  
@@ -31,5 +33,9 @@
 <%end %>
 </table>
 
+
+
+
 <p><button><%= link_to "new" , new_appointment_path %></button></p> 
+
 </center>

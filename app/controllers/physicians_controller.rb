@@ -3,7 +3,7 @@ class PhysiciansController < ApplicationController
     if !params[:search].blank? 
       @phy=Physician.where("name LIKE ? OR age LIKE ? OR experiance LIKE ?  " , "%#{params[:search]}%", "%#{params[:search]}%","%#{params[:search]}%")
     else    
-      @phy = Physician.all
+      @phy = Physician.all.includes(:patient_account)
     end
     $status = 0
   end
@@ -11,19 +11,20 @@ class PhysiciansController < ApplicationController
   def show
     @phy = Physician.find params[:id]
 
-    @patients_name=Appointment.where(physician:@phy.name)
-    @patients=Patient.find_by name:@patients_name.name
+    # @patients_name=Appointment.where(physician:@phy.name)
+    #@patients=Patient.find_by name:@patients_name.name
 
-    @patient_comments=Comment.where(person_id:params[:id]).where(person_type:"Physician")
     @physician_comments=Comment.where(person_id:params[:id]).where(person_type:"Physician")
   end
 
   def new
     @phy = Physician.new
+    
   end
 
   def create
      @phy = Physician.new(physician_params)
+    
     if @phy.save
       redirect_to physicians_path
     else 
@@ -59,6 +60,14 @@ class PhysiciansController < ApplicationController
      end  
 
   end
+
+   def comment
+    @physician = Physician.find params[:format]
+    @physician.comments.create(comment:params[:comment])
+    redirect_to physician_path(@physician)
+
+  end
+
 
 
 private 

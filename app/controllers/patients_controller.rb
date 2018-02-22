@@ -3,7 +3,7 @@ class PatientsController < ApplicationController
     if !params[:search].blank? 
       @p=Patient.where("name LIKE ? OR age LIKE ? OR phone LIKE ? OR gender LIKE ? OR department LIKE ? OR email LIKE ?  " , "%#{params[:search]}%", "%#{params[:search]}%" , "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%")
     else
-      @p = Patient.all
+      @p = Patient.all.includes(:patient_account)
     end 
     $status = 0
   end

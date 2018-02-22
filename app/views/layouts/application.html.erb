@@ -8,7 +8,9 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <h1 align="center" class="text-success"  >AROGYA <small  class="text-info"> MULTI-SPECIALITY HOSPITAL </small></h1>
 
+  
     <!-- For third-generation iPad with high-resolution Retina display: -->
     <!-- Size should be 144 x 144 pixels -->
     <%#= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
@@ -45,12 +47,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Hospital</a>
+        <a class="navbar-brand" href="/">AROGYA</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to "Physicians", physicians_path  %></li>
-            <li><%= link_to "Link2", "/path2"  %></li>
-            <li><%= link_to "Link3", "/path3"  %></li>
+            <li><%= link_to "Patients",  patients_path  %></li>
+            <li><%= link_to "Appointments", appointments_path   %></li>
           </ul>
         </div>
       </div>

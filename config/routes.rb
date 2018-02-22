@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   	member do 
   		get 'generate_number_physician'
   	end
+    collection do
+      get 'comment'
+      post 'comment'
+    end
 
   end
   resources :patients do
@@ -21,6 +25,8 @@ Rails.application.routes.draw do
   resources :appointments 
 
   root 'appointments#index'
+
+ 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
